@@ -3,8 +3,8 @@ Vi vill utnyttja expansioner över vwap för att fånga trender. VWAP är bra f�
 vwap ska handla på EURUSD, GBPUSD, USDCHF och USDCAD under asia session 22:00 - 03:00. Forex tenderar att vara mer mean reverting än till exempel aktie index. Men det finns vissa valutapar som är undantag, i våran mean reversion testing presterade USDJPY sämra än de 
 andra paren. Troligtvis eftersom JPY par ofta expanderar mer än de andra paren. Därför kommer vi bygga detta trendföljande system runt JPY par, vilket förhoppningsvis ska ge bra diversifiering i portföljen och komplettera mean reversion systemet. Först och främst innan
 vi börjar med projektet måste vi ha en grundlig trade idé som har edge. Vi nämnde tidigare att vi måste definiera expansion genom en tilläggande parameter som inte är vwap. Våran första grund idé som visat edge i in sample har sådanhär logik: för longs ska 1 timmes
-bar stänga ovanför gårdagens high, detta är vår expansions definiering. När denna breakout skett ska föregående 5 minuters bar stänga ovanför vwap för att nuvarande 5 minuters bar ska kunna göra en pullback till vwap där barens low tradear under vwap men stänger ovanför.
-När baren stänger ovanför bildas en long signal där entry skär på nästa bar open. Innan vi går in i själva projektet testade vi denna grund idén på USDJPY utan sessionsfilter mellan åren 2012 - 2019 som in sample data:
+bar stänga ovanför gårdagens high, detta är vår expansions definiering. När denna breakout skett ska föregående 5 minuters bar stänga ovanför vwap för att nuvarande 5 minuters bar ska kunna göra en pullback till vwap där barens low tradear under vwap men stänger ovanför. När baren stänger ovanför bildas en long signal där entry skär på nästa bar open. Exits går igenom när en 5 minuters bar stänger under vwap. Logiken är exakt omvänd för shorts.
+Innan vi går in i själva projektet testade vi denna grund idén på USDJPY utan sessionsfilter mellan åren 2012 - 2019 som in sample data:
 --- STATS ---
 Market: USDJPY
 Trades: 1370
