@@ -1537,5 +1537,1548 @@ Expectancy (avg/trade): -0.0817
 Max Drawdown (points): 12.3140
 Max Losing Streak (trades): 12
 Sharpe (trade-level): -1.5524
-Edge håller även med hårdare kostnader. Nu testar vi andra marknader.
-
+Edge håller även med hårdare kostnader. Nu testar vi andra marknader. GBPJPY:
+Market: GBPJPY
+Trades: 2049
+Total PnL (points): 24.0219
+Gross Profit: 560.7668
+Gross Loss: -536.7449
+Profit Factor: 1.0448
+Winrate: 0.2918
+Avg Win: 0.9377
+Avg Loss: -0.3699
+Expectancy (avg/trade): 0.0117
+Max Drawdown (points): 32.9117
+Max Losing Streak (trades): 17
+Sharpe (trade-level): 0.5816
+Det finns en tunn edge. Vi tror att sessionsfilter fortfarande kan vara ett alternativ, vi har i tidigare undersökning upptäckt att timmarna runt och under asia session är mer mean reverting. Så det finns en fundamental hypotes till varför vi vill testa det på GBPJPY
+efter att vi upptäckt att tunn edge finns. Det viktiga nu, för att undvika overfitting är att vi är hypotes-drivande och motiverar det vi gör utifrån ett marknadslogik. Det är även viktigt att ifall detta filter ger mer edge på GBPJPY, att vi testar USDJPY 
+(hela datasetet) med våran nuvarande strategi (adx tröskel), vilket vi inte gjorde förut i våran in sample testing när vi testade sessionsfitlret. Med det sagt testar vi nu GBPJPY med ett 08:00-16:00 sessionsfilter:
+Market: GBPJPY
+Trades: 1122
+Total PnL (points): 46.0462
+Gross Profit: 349.3988
+Gross Loss: -303.3526
+Profit Factor: 1.1518
+Winrate: 0.3458
+Avg Win: 0.9005
+Avg Loss: -0.4133
+Expectancy (avg/trade): 0.0410
+Max Drawdown (points): 16.6556
+Max Losing Streak (trades): 13
+Sharpe (trade-level): 1.5476
+Här ser vi att sessionfiltret drar upp edge markant. Ifall det inte håller på USDJPY, går vi vidare utan sessionsfilter och testar andra marknader utan. USDJPY 2012-2026 med samma kostnader som de initiella testen, slippage  = 0.08, spread = 0.15 utan sessionsfilter:
+Market: USDJPY
+Trades: 2062
+Total PnL (points): 58.3998
+Gross Profit: 372.4132
+Gross Loss: -314.0134
+Profit Factor: 1.1860
+Winrate: 0.3191
+Avg Win: 0.5660
+Avg Loss: -0.2237
+Expectancy (avg/trade): 0.0283
+Max Drawdown (points): 13.3537
+Max Losing Streak (trades): 18
+Sharpe (trade-level): 2.2487
+med sessionsfilter:
+Market: USDJPY
+Trades: 1036
+Total PnL (points): 40.6964
+Gross Profit: 199.8839
+Gross Loss: -159.1875
+Profit Factor: 1.2557
+Winrate: 0.3292
+Avg Win: 0.5862
+Avg Loss: -0.2290
+Expectancy (avg/trade): 0.0393
+Max Drawdown (points): 8.3192
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 2.2013
+Edgen blir lite, lite sämre med 1000 färre trades och drawdown minskar. Givet att sessionsfiltret gör det det gör för GBPJPY och håller edge på samma nive som tidigare för USDJPY kommer vi gå vidare med det för USDJPY också. Vi vill hålla strategin likadan över 
+intstrument. Nu har vi både USDJPY och GBPJPY som portfölj kandidater. Vi går vidare och testar EURJPY: 
+Market: EURJPY
+Trades: 1065
+Total PnL (points): -26.9855
+Gross Profit: 194.6050
+Gross Loss: -221.5905
+Profit Factor: 0.8782
+Winrate: 0.3249
+Avg Win: 0.5624
+Avg Loss: -0.3082
+Expectancy (avg/trade): -0.0253
+Max Drawdown (points): 31.3445
+Max Losing Streak (trades): 15
+Sharpe (trade-level): -1.4453
+AUDJPY:
+Market: AUDJPY
+Trades: 918
+Total PnL (points): 3.9090
+Gross Profit: 151.8700
+Gross Loss: -147.9610
+Profit Factor: 1.0264
+Winrate: 0.3257
+Avg Win: 0.5079
+Avg Loss: -0.2390
+Expectancy (avg/trade): 0.0043
+Max Drawdown (points): 15.8920
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 0.2495
+EURGBP:
+Market: EURGBP
+Trades: 1327
+Total PnL (points): -0.0756
+Gross Profit: 1.3632
+Gross Loss: -1.4388
+Profit Factor: 0.9475
+Winrate: 0.3225
+Avg Win: 0.0032
+Avg Loss: -0.0016
+Expectancy (avg/trade): -0.0001
+Max Drawdown (points): 0.1513
+Max Losing Streak (trades): 20
+Sharpe (trade-level): -0.6570
+USDCAD:
+Market: USDCAD
+Trades: 1200
+Total PnL (points): -0.4441
+Gross Profit: 1.5856
+Gross Loss: -2.0297
+Profit Factor: 0.7812
+Winrate: 0.2975
+Avg Win: 0.0044
+Avg Loss: -0.0024
+Expectancy (avg/trade): -0.0004
+Max Drawdown (points): 0.4483
+Max Losing Streak (trades): 14
+Sharpe (trade-level): -2.9286
+USDCHF:
+Market: USDCHF
+Trades: 1250
+Total PnL (points): 0.2156
+Gross Profit: 1.8537
+Gross Loss: -1.6381
+Profit Factor: 1.1316
+Winrate: 0.3456
+Avg Win: 0.0043
+Avg Loss: -0.0020
+Expectancy (avg/trade): 0.0002
+Max Drawdown (points): 0.0835
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 1.2246
+EURUSD:
+Market: EURUSD
+Trades: 1257
+Total PnL (points): 0.0582
+Gross Profit: 1.9849
+Gross Loss: -1.9267
+Profit Factor: 1.0302
+Winrate: 0.3381
+Avg Win: 0.0047
+Avg Loss: -0.0023
+Expectancy (avg/trade): 0.0000
+Max Drawdown (points): 0.1388
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 0.3571
+GBPUSD:
+Market: GBPUSD
+Trades: 1299
+Total PnL (points): -0.2231
+Gross Profit: 2.4247
+Gross Loss: -2.6477
+Profit Factor: 0.9158
+Winrate: 0.3326
+Avg Win: 0.0056
+Avg Loss: -0.0031
+Expectancy (avg/trade): -0.0002
+Max Drawdown (points): 0.4076
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -1.1306
+AUDUSD:
+Market: AUDUSD
+Trades: 1018
+Total PnL (points): -0.0587
+Gross Profit: 1.2811
+Gross Loss: -1.3398
+Profit Factor: 0.9562
+Winrate: 0.3448
+Avg Win: 0.0036
+Avg Loss: -0.0020
+Expectancy (avg/trade): -0.0001
+Max Drawdown (points): 0.1433
+Max Losing Streak (trades): 15
+Sharpe (trade-level): -0.4871
+NZDUSD:
+Market: NZDUSD
+Trades: 1025
+Total PnL (points): -0.3488
+Gross Profit: 1.0495
+Gross Loss: -1.3983
+Profit Factor: 0.7506
+Winrate: 0.2937
+Avg Win: 0.0035
+Avg Loss: -0.0019
+Expectancy (avg/trade): -0.0003
+Max Drawdown (points): 0.3540
+Max Losing Streak (trades): 16
+Sharpe (trade-level): -3.2319
+USDCHF är den ända marknaden här som visar tillräcklig edge för att vara kompatibel i portföljen. Våra forex kandidater för portföljen är nu alltså: USDJPY, GBPJPY och USDCHF. Som slutsats kan vi beskriva strategin som icke generell forex strategi, det är en 
+trendstrategi som kräver utdragna rörelser, hög aktivitet under session och marknader som inte är hårt mean reverting. Det är därför JPY paren passer bäst, vissa USD-par visar någorlunda edge och europa interna par som EURGBP är döda. Vi rör oss nu ifrån forex 
+marknaden och testar index och sedan råvaror. Vi testar först USA index, nasdaq, sp500 och us30. Nasdaq:
+Market: US100
+Trades: 959
+Total PnL (points): 1863.2391
+Gross Profit: 36312.5040
+Gross Loss: -34449.2649
+Profit Factor: 1.0541
+Winrate: 0.2847
+Avg Win: 133.0128
+Avg Loss: -50.2176
+Expectancy (avg/trade): 1.9429
+Max Drawdown (points): 2974.2820
+Max Losing Streak (trades): 21
+Sharpe (trade-level): 0.4519
+SP500:
+Market: US500
+Trades: 911
+Total PnL (points): 417.0069
+Gross Profit: 8619.5200
+Gross Loss: -8202.5131
+Profit Factor: 1.0508
+Winrate: 0.2997
+Avg Win: 31.5733
+Avg Loss: -12.8566
+Expectancy (avg/trade): 0.4577
+Max Drawdown (points): 815.4470
+Max Losing Streak (trades): 18
+Sharpe (trade-level): 0.4352
+US30:
+Market: US300
+Trades: 944
+Total PnL (points): -5973.2867
+Gross Profit: 67572.4210
+Gross Loss: -73545.7077
+Profit Factor: 0.9188
+Winrate: 0.2987
+Avg Win: 239.6185
+Avg Loss: -111.0962
+Expectancy (avg/trade): -6.3276
+Max Drawdown (points): 10879.0290
+Max Losing Streak (trades): 18
+Sharpe (trade-level): -0.8186
+Tunn edge på nasdaq och sp500. Vi hypotiserar att edgen blir starkare om vi endast tar longs, eftersom aktie index är bullish i strukturen. Vi ändrar även sessionen så att den passar bättre in i New york till 12:00 - 22:00 Vi testar strategin med bara longs:
+Nasdaq:
+Market: US100
+Trades: 770
+Total PnL (points): 8804.1992
+Gross Profit: 35475.2171
+Gross Loss: -26671.0180
+Profit Factor: 1.3301
+Winrate: 0.3610
+Avg Win: 127.6087
+Avg Loss: -54.2094
+Expectancy (avg/trade): 11.4340
+Max Drawdown (points): 1441.8870
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 2.0672
+SP500:
+Market: US500
+Trades: 762
+Total PnL (points): -68.0411
+Gross Profit: 7310.2360
+Gross Loss: -7378.2771
+Profit Factor: 0.9908
+Winrate: 0.3425
+Avg Win: 28.0086
+Avg Loss: -14.7271
+Expectancy (avg/trade): -0.0893
+Max Drawdown (points): 928.6150
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -0.0745
+US30:
+Market: US30
+Trades: 813
+Total PnL (points): 2868.3176
+Gross Profit: 64189.6395
+Gross Loss: -61321.3219
+Profit Factor: 1.0468
+Winrate: 0.3358
+Avg Win: 235.1269
+Avg Loss: -113.5580
+Expectancy (avg/trade): 3.5281
+Max Drawdown (points): 3637.7140
+Max Losing Streak (trades): 13
+Sharpe (trade-level): 0.4125
+Nasdaq med rätt sessionsfilter och handelslogik som passar in i indexets underliggande struktur ger stark edge. Nasdaq är en portföljkandidat. Vi testar nu dax40, uk100, fra40, eus50 och Nikkei225 longs only. 
+Dax40 med sessionsfilter 08-12, frankfurt open 09:00 där största rörelserna sker innan lunch, dax brukar bli mer mean reverting efter det:
+Market: DAX40
+Trades: 490
+Total PnL (points): 4103.4028
+Gross Profit: 22988.2460
+Gross Loss: -18884.8432
+Profit Factor: 1.2173
+Winrate: 0.3592
+Avg Win: 130.6150
+Avg Loss: -60.1428
+Expectancy (avg/trade): 8.3743
+Max Drawdown (points): 1556.8590
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 1.3823
+Uk100 med 08-11:30 eftersom UK100 ofta är mer mean reverting än andra aktie index, momentum fungerar bäst vid london open där riktning sätts snabbt:
+Market: UK100
+Trades: 510
+Total PnL (points): -1581.3182
+Gross Profit: 8468.8232
+Gross Loss: -10050.1414
+Profit Factor: 0.8427
+Winrate: 0.3176
+Avg Win: 52.2767
+Avg Loss: -28.8797
+Expectancy (avg/trade): -3.1006
+Max Drawdown (points): 2194.4930
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -1.2698
+Fra40 med 08-12, likt dax men lägre volatilitet:
+Market: FRA40
+Trades: 491
+Total PnL (points): -1456.2576
+Gross Profit: 9749.0317
+Gross Loss: -11205.2893
+Profit Factor: 0.8700
+Winrate: 0.3116
+Avg Win: 63.7192
+Avg Loss: -33.1517
+Expectancy (avg/trade): -2.9659
+Max Drawdown (points): 1972.2130
+Max Losing Streak (trades): 18
+Sharpe (trade-level): -1.0173
+Eus50 med 08-14, mer institutionssdriven och trendrörelser brukar fortsätta längre under dagen:
+Market: EUS50
+Trades: 456
+Total PnL (points): -2444.9490
+Gross Profit: 5315.9220
+Gross Loss: -7760.8710
+Profit Factor: 0.6850
+Winrate: 0.2566
+Avg Win: 45.4352
+Avg Loss: -22.8934
+Expectancy (avg/trade): -5.3617
+Max Drawdown (points): 2582.6320
+Max Losing Streak (trades): 13
+Sharpe (trade-level): -2.6555
+Nikkei225 med 02-08:
+Market: Nikkei225
+Trades: 420
+Total PnL (points): -1666.3073
+Gross Profit: 32766.2381
+Gross Loss: -34432.5453
+Profit Factor: 0.9516
+Winrate: 0.3476
+Avg Win: 224.4263
+Avg Loss: -125.6662
+Expectancy (avg/trade): -3.9674
+Max Drawdown (points): 5412.0030
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -0.3258
+Av de europiska och japanska indexen är endast DAX40 strukturellt trendande nog för att strategin ska kunna plocka någon edge. Just nu har vi USDJPY, GBPJPY, USDCHF, Nasdaq, Dax40. Vi testar nu råvaror, metaller och energi. Vi testar dessa med short och longs.
+XAUUSD med 14:30-20 eftersom rörelserna gör guld är korrelerade med usas rates, med detta fönster fångar vi london/new york overlap och resten av new york:
+Market: GOLD
+Trades: 841
+Total PnL (points): -56229.3000
+Gross Profit: 315305.7000
+Gross Loss: -371535.0000
+Profit Factor: 0.8487
+Winrate: 0.2996
+Avg Win: 1251.2131
+Avg Loss: -630.7895
+Expectancy (avg/trade): -66.8600
+Max Drawdown (points): 82930.6000
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -1.4712
+XAGUSD med 14:30-20, liknar guld men mer volatil och riskfylld:
+Market: SILVER
+Trades: 702
+Total PnL (points): -5981.5000
+Gross Profit: 5713.8000
+Gross Loss: -11695.3000
+Profit Factor: 0.4886
+Winrate: 0.1994
+Avg Win: 40.8129
+Avg Loss: -20.8101
+Expectancy (avg/trade): -8.5207
+Max Drawdown (points): 6018.0000
+Max Losing Streak (trades): 26
+Sharpe (trade-level): -6.0598
+USOIL(crude oil) med 14-19 eftersom det är ne wyork session, US pit open, brukar bli trend moves:
+Market: USOIL
+Trades: 348
+Total PnL (points): -7813.4000
+Gross Profit: 22503.0000
+Gross Loss: -30316.4000
+Profit Factor: 0.7423
+Winrate: 0.2902
+Avg Win: 222.8020
+Avg Loss: -122.7385
+Expectancy (avg/trade): -22.4523
+Max Drawdown (points): 10337.0000
+Max Losing Streak (trades): 23
+Sharpe (trade-level): -1.8825
+UKOIL(brent oil) med 09-13 eftersom denna är mer EU-driven än crude oil:
+Market: UKOIL
+Trades: 721
+Total PnL (points): -11427.8998
+Gross Profit: 23884.8000
+Gross Loss: -35312.6998
+Profit Factor: 0.6764
+Winrate: 0.2774
+Avg Win: 119.4240
+Avg Loss: -67.7787
+Expectancy (avg/trade): -15.8501
+Max Drawdown (points): 12212.0998
+Max Losing Streak (trades): 15
+Sharpe (trade-level): -3.4372
+NATGAS med 14-18, new york aktiv, väldigt trendande marknad men opckså högst slippage-känslighet:
+Market: NATGAS
+Trades: 769
+Total PnL (points): -23254.3000
+Gross Profit: 24152.8000
+Gross Loss: -47407.1000
+Profit Factor: 0.5095
+Winrate: 0.2107
+Avg Win: 149.0914
+Avg Loss: -78.1007
+Expectancy (avg/trade): -30.2397
+Max Drawdown (points): 23327.8000
+Max Losing Streak (trades): 26
+Sharpe (trade-level): -5.6591
+Ingen edge någonstanns här. Råvaror tenderar att vara asymmmetriska precis som aktie index. Vi testar både shorts och longs separat på varje marknad.
+Market: GOLD LONG ONLY
+Trades: 464
+Total PnL (points): 7999.5000
+Gross Profit: 185889.1000
+Gross Loss: -177889.6000
+Profit Factor: 1.0450
+Winrate: 0.3297
+Avg Win: 1214.9614
+Avg Loss: -571.9923
+Expectancy (avg/trade): 17.2403
+Max Drawdown (points): 30809.2000
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.2702
+Market: GOLD SHORT ONLY
+Trades: 543
+Total PnL (points): -56250.4000
+Gross Profit: 199936.8000
+Gross Loss: -256187.2000
+Profit Factor: 0.7804
+Winrate: 0.2707
+Avg Win: 1360.1143
+Avg Loss: -646.9374
+Expectancy (avg/trade): -103.5919
+Max Drawdown (points): 76633.9000
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -1.8060
+Market: SILVER LONG ONLY
+Trades: 368
+Total PnL (points): -2103.3000
+Gross Profit: 3257.0000
+Gross Loss: -5360.3000
+Profit Factor: 0.6076
+Winrate: 0.2228
+Avg Win: 39.7195
+Avg Loss: -18.7423
+Expectancy (avg/trade): -5.7155
+Max Drawdown (points): 2388.8000
+Max Losing Streak (trades): 20
+Sharpe (trade-level): -3.0969
+Market: SILVER SHORT ONLY
+Trades: 464
+Total PnL (points): -5280.1000
+Gross Profit: 3079.9000
+Gross Loss: -8360.0000
+Profit Factor: 0.3684
+Winrate: 0.1724
+Avg Win: 38.4988
+Avg Loss: -21.7708
+Expectancy (avg/trade): -11.3795
+Max Drawdown (points): 5266.7000
+Max Losing Streak (trades): 17
+Sharpe (trade-level): -6.7775
+Market: USOIL SHORT ONLY
+Trades: 285
+Total PnL (points): -8441.2000
+Gross Profit: 18045.4000
+Gross Loss: -26486.6000
+Profit Factor: 0.6813
+Winrate: 0.2561
+Avg Win: 247.1973
+Avg Loss: -124.9368
+Expectancy (avg/trade): -29.6182
+Max Drawdown (points): 10563.9000
+Max Losing Streak (trades): 19
+Sharpe (trade-level): -2.1937
+Market: USOIL LONG ONLY
+Trades: 265
+Total PnL (points): -1129.9000
+Gross Profit: 21223.7000
+Gross Loss: -22353.6000
+Profit Factor: 0.9495
+Winrate: 0.3321
+Avg Win: 241.1784
+Avg Loss: -126.2915
+Expectancy (avg/trade): -4.2638
+Max Drawdown (points): 5412.9000
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.2864
+Market: UKOIL SHORT ONLY
+Trades: 411
+Total PnL (points): -3548.4997
+Gross Profit: 15593.7000
+Gross Loss: -19142.1997
+Profit Factor: 0.8146
+Winrate: 0.2822
+Avg Win: 134.4284
+Avg Loss: -64.8888
+Expectancy (avg/trade): -8.6338
+Max Drawdown (points): 4019.4997
+Max Losing Streak (trades): 13
+Sharpe (trade-level): -1.2429
+Market: UKOIL LONG ONLY
+Trades: 429
+Total PnL (points): -11599.5998
+Gross Profit: 11209.7000
+Gross Loss: -22809.2998
+Profit Factor: 0.4915
+Winrate: 0.2471
+Avg Win: 105.7519
+Avg Loss: -70.6170
+Expectancy (avg/trade): -27.0387
+Max Drawdown (points): 12386.5998
+Max Losing Streak (trades): 13
+Sharpe (trade-level): -5.0405
+Market: NATGAS SHORT ONLY
+Trades: 490
+Total PnL (points): -13770.1000
+Gross Profit: 16271.8000
+Gross Loss: -30041.9000
+Profit Factor: 0.5416
+Winrate: 0.2061
+Avg Win: 161.1069
+Avg Loss: -77.2285
+Expectancy (avg/trade): -28.1022
+Max Drawdown (points): 13631.5000
+Max Losing Streak (trades): 22
+Sharpe (trade-level): -3.8580
+Market: NATGAS LONG ONLY
+Trades: 479
+Total PnL (points): -17740.5000
+Gross Profit: 11017.7000
+Gross Loss: -28758.2000
+Profit Factor: 0.3831
+Winrate: 0.1983
+Avg Win: 115.9758
+Avg Loss: -74.8911
+Expectancy (avg/trade): -37.0365
+Max Drawdown (points): 17941.3000
+Max Losing Streak (trades): 25
+Sharpe (trade-level): -7.2177
+Ingen edge någonstanns här heller. Vi har våra klara kandidater för portföljen nu - (USDJPY, GBPJPY och USDCHF 08-16), (Nasdaq 12-20 och Dax40 08-12, long only). Som sista test kommer vi stresstesta strategin på varje marknad med extremt hårda kostnader.
+NASDAQ med 2.5 spread, 1.2 slippage:
+Market: NASDAQ
+Trades: 1152
+Total PnL (points): 3876.9464
+Gross Profit: 48008.6151
+Gross Loss: -44131.6687
+Profit Factor: 1.0878
+Winrate: 0.2995
+Avg Win: 139.1554
+Avg Loss: -54.6861
+Expectancy (avg/trade): 3.3654
+Max Drawdown (points): 3910.2246
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 0.7752
+--- PER-ÅR STATS ---
+NASDAQ - 2012:
+Trades: 72
+Total PnL (points): -401.7697
+Gross Profit: 533.6601
+Gross Loss: -935.4298
+Profit Factor: 0.5705
+Winrate: 0.1944
+Avg Win: 38.1186
+Avg Loss: -16.1281
+Expectancy (avg/trade): -5.5801
+Max Drawdown (points): 457.9197
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -1.8821
+NASDAQ - 2013:
+Trades: 96
+Total PnL (points): -682.4829
+Gross Profit: 445.2740
+Gross Loss: -1127.7569
+Profit Factor: 0.3948
+Winrate: 0.1979
+Avg Win: 23.4355
+Avg Loss: -14.6462
+Expectancy (avg/trade): -7.1092
+Max Drawdown (points): 679.1429
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -3.4908
+NASDAQ - 2014:
+Trades: 88
+Total PnL (points): -332.8300
+Gross Profit: 858.3360
+Gross Loss: -1191.1660
+Profit Factor: 0.7206
+Winrate: 0.2841
+Avg Win: 34.3334
+Avg Loss: -18.9074
+Expectancy (avg/trade): -3.7822
+Max Drawdown (points): 481.4940
+Max Losing Streak (trades): 12
+Sharpe (trade-level): -1.1208
+NASDAQ - 2015:
+Trades: 69
+Total PnL (points): 32.3010
+Gross Profit: 1266.3520
+Gross Loss: -1234.0510
+Profit Factor: 1.0262
+Winrate: 0.3043
+Avg Win: 60.3025
+Avg Loss: -25.7094
+Expectancy (avg/trade): 0.4681
+Max Drawdown (points): 408.0700
+Max Losing Streak (trades): 11
+Sharpe (trade-level): 0.0644
+NASDAQ - 2016:
+Trades: 67
+Total PnL (points): 48.0980
+Gross Profit: 1036.3940
+Gross Loss: -988.2960
+Profit Factor: 1.0487
+Winrate: 0.2985
+Avg Win: 51.8197
+Avg Loss: -21.0276
+Expectancy (avg/trade): 0.7179
+Max Drawdown (points): 407.6120
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 0.1028
+NASDAQ - 2017:
+Trades: 66
+Total PnL (points): -413.6660
+Gross Profit: 724.9510
+Gross Loss: -1138.6170
+Profit Factor: 0.6367
+Winrate: 0.2424
+Avg Win: 45.3094
+Avg Loss: -22.7723
+Expectancy (avg/trade): -6.2677
+Max Drawdown (points): 410.4200
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -1.4212
+NASDAQ - 2018:
+Trades: 76
+Total PnL (points): 197.7500
+Gross Profit: 2087.6890
+Gross Loss: -1889.9390
+Profit Factor: 1.1046
+Winrate: 0.3684
+Avg Win: 74.5603
+Avg Loss: -39.3737
+Expectancy (avg/trade): 2.6020
+Max Drawdown (points): 484.7170
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.3200
+NASDAQ - 2019:
+Trades: 92
+Total PnL (points): -1059.8450
+Gross Profit: 1783.0640
+Gross Loss: -2842.9090
+Profit Factor: 0.6272
+Winrate: 0.2609
+Avg Win: 74.2943
+Avg Loss: -41.8075
+Expectancy (avg/trade): -11.5201
+Max Drawdown (points): 1072.8090
+Max Losing Streak (trades): 10
+Sharpe (trade-level): -1.4839
+NASDAQ - 2020:
+Trades: 98
+Total PnL (points): -957.6440
+Gross Profit: 4172.2210
+Gross Loss: -5129.8650
+Profit Factor: 0.8133
+Winrate: 0.3776
+Avg Win: 112.7627
+Avg Loss: -84.0961
+Expectancy (avg/trade): -9.7719
+Max Drawdown (points): 1468.9200
+Max Losing Streak (trades): 15
+Sharpe (trade-level): -0.7709
+NASDAQ - 2021:
+Trades: 84
+Total PnL (points): 312.2360
+Gross Profit: 4164.2460
+Gross Loss: -3852.0100
+Profit Factor: 1.0811
+Winrate: 0.3571
+Avg Win: 138.8082
+Avg Loss: -71.3335
+Expectancy (avg/trade): 3.7171
+Max Drawdown (points): 820.1480
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 0.2724
+NASDAQ - 2022:
+Trades: 91
+Total PnL (points): 6816.5520
+Gross Profit: 12797.2100
+Gross Loss: -5980.6580
+Profit Factor: 2.1398
+Winrate: 0.4396
+Avg Win: 319.9302
+Avg Loss: -117.2678
+Expectancy (avg/trade): 74.9072
+Max Drawdown (points): 739.1920
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 2.5684
+NASDAQ - 2023:
+Trades: 90
+Total PnL (points): -934.3960
+Gross Profit: 4594.6000
+Gross Loss: -5528.9960
+Profit Factor: 0.8310
+Winrate: 0.2889
+Avg Win: 176.7154
+Avg Loss: -86.3906
+Expectancy (avg/trade): -10.3822
+Max Drawdown (points): 1805.0940
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -0.5881
+NASDAQ - 2024:
+Trades: 94
+Total PnL (points): 296.4450
+Gross Profit: 6093.5940
+Gross Loss: -5797.1490
+Profit Factor: 1.0511
+Winrate: 0.2766
+Avg Win: 234.3690
+Avg Loss: -85.2522
+Expectancy (avg/trade): 3.1537
+Max Drawdown (points): 2039.5850
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 0.1486
+NASDAQ - 2025:
+Trades: 69
+Total PnL (points): 956.1980
+Gross Profit: 7451.0240
+Gross Loss: -6494.8260
+Profit Factor: 1.1472
+Winrate: 0.2754
+Avg Win: 392.1592
+Avg Loss: -129.8965
+Expectancy (avg/trade): 13.8579
+Max Drawdown (points): 2045.1960
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.3691
+DAX med 2.5 spread, 1.5 slippage:
+Market: DAX40
+Trades: 808
+Total PnL (points): -533.9043
+Gross Profit: 32812.4412
+Gross Loss: -33346.3455
+Profit Factor: 0.9840
+Winrate: 0.3255
+Avg Win: 124.7621
+Avg Loss: -61.1860
+Expectancy (avg/trade): -0.6608
+Max Drawdown (points): 2672.9021
+Max Losing Streak (trades): 16
+Sharpe (trade-level): -0.1432
+--- PER-ÅR STATS ---
+DAX40 - 2012:
+Trades: 48
+Total PnL (points): -915.4627
+Gross Profit: 714.8101
+Gross Loss: -1630.2728
+Profit Factor: 0.4385
+Winrate: 0.1875
+Avg Win: 79.4233
+Avg Loss: -41.8019
+Expectancy (avg/trade): -19.0721
+Max Drawdown (points): 957.3514
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -2.0342
+DAX40 - 2013:
+Trades: 78
+Total PnL (points): -572.9376
+Gross Profit: 1581.4941
+Gross Loss: -2154.4317
+Profit Factor: 0.7341
+Winrate: 0.2564
+Avg Win: 79.0747
+Avg Loss: -37.1454
+Expectancy (avg/trade): -7.3454
+Max Drawdown (points): 631.9640
+Max Losing Streak (trades): 10
+Sharpe (trade-level): -0.9575
+DAX40 - 2014:
+Trades: 70
+Total PnL (points): 49.2480
+Gross Profit: 2265.1400
+Gross Loss: -2215.8920
+Profit Factor: 1.0222
+Winrate: 0.4286
+Avg Win: 75.5047
+Avg Loss: -55.3973
+Expectancy (avg/trade): 0.7035
+Max Drawdown (points): 1003.4110
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 0.0725
+DAX40 - 2015:
+Trades: 56
+Total PnL (points): -145.0110
+Gross Profit: 3051.3240
+Gross Loss: -3196.3350
+Profit Factor: 0.9546
+Winrate: 0.3214
+Avg Win: 169.5180
+Avg Loss: -84.1141
+Expectancy (avg/trade): -2.5895
+Max Drawdown (points): 1452.9000
+Max Losing Streak (trades): 10
+Sharpe (trade-level): -0.1129
+DAX40 - 2016:
+Trades: 44
+Total PnL (points): 234.8780
+Gross Profit: 2234.6330
+Gross Loss: -1999.7550
+Profit Factor: 1.1175
+Winrate: 0.3636
+Avg Win: 139.6646
+Avg Loss: -71.4198
+Expectancy (avg/trade): 5.3381
+Max Drawdown (points): 777.6060
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 0.2434
+DAX40 - 2017:
+Trades: 56
+Total PnL (points): 151.6470
+Gross Profit: 2027.3670
+Gross Loss: -1875.7200
+Profit Factor: 1.0808
+Winrate: 0.3393
+Avg Win: 106.7035
+Avg Loss: -50.6951
+Expectancy (avg/trade): 2.7080
+Max Drawdown (points): 744.6690
+Max Losing Streak (trades): 16
+Sharpe (trade-level): 0.1999
+DAX40 - 2018:
+Trades: 55
+Total PnL (points): -860.4350
+Gross Profit: 1295.8790
+Gross Loss: -2156.3140
+Profit Factor: 0.6010
+Winrate: 0.2545
+Avg Win: 92.5628
+Avg Loss: -52.5930
+Expectancy (avg/trade): -15.6443
+Max Drawdown (points): 1173.1340
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -1.4078
+DAX40 - 2019:
+Trades: 65
+Total PnL (points): 683.0000
+Gross Profit: 2800.7800
+Gross Loss: -2117.7800
+Profit Factor: 1.3225
+Winrate: 0.3385
+Avg Win: 127.3082
+Avg Loss: -49.2507
+Expectancy (avg/trade): 10.5077
+Max Drawdown (points): 316.3800
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 0.7128
+DAX40 - 2020:
+Trades: 47
+Total PnL (points): 1497.5490
+Gross Profit: 4223.2910
+Gross Loss: -2725.7420
+Profit Factor: 1.5494
+Winrate: 0.3830
+Avg Win: 234.6273
+Avg Loss: -93.9911
+Expectancy (avg/trade): 31.8627
+Max Drawdown (points): 994.6200
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 0.8706
+DAX40 - 2021:
+Trades: 57
+Total PnL (points): -264.6780
+Gross Profit: 1709.5400
+Gross Loss: -1974.2180
+Profit Factor: 0.8659
+Winrate: 0.3860
+Avg Win: 77.7064
+Avg Loss: -56.4062
+Expectancy (avg/trade): -4.6435
+Max Drawdown (points): 1249.6300
+Max Losing Streak (trades): 6
+Sharpe (trade-level): -0.3743
+DAX40 - 2022:
+Trades: 70
+Total PnL (points): 743.0100
+Gross Profit: 4079.2660
+Gross Loss: -3336.2560
+Profit Factor: 1.2227
+Winrate: 0.3714
+Avg Win: 156.8948
+Avg Loss: -75.8240
+Expectancy (avg/trade): 10.6144
+Max Drawdown (points): 878.7980
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.5086
+DAX40 - 2023:
+Trades: 64
+Total PnL (points): 99.8940
+Gross Profit: 2693.8940
+Gross Loss: -2594.0000
+Profit Factor: 1.0385
+Winrate: 0.2969
+Avg Win: 141.7839
+Avg Loss: -57.6444
+Expectancy (avg/trade): 1.5608
+Max Drawdown (points): 642.5480
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 0.0948
+DAX40 - 2024:
+Trades: 54
+Total PnL (points): -100.0950
+Gross Profit: 2170.7570
+Gross Loss: -2270.8520
+Profit Factor: 0.9559
+Winrate: 0.3333
+Avg Win: 120.5976
+Avg Loss: -63.0792
+Expectancy (avg/trade): -1.8536
+Max Drawdown (points): 939.2560
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.1150
+DAX40 - 2025:
+Trades: 44
+Total PnL (points): -1134.5110
+Gross Profit: 1964.2660
+Gross Loss: -3098.7770
+Profit Factor: 0.6339
+Winrate: 0.2727
+Avg Win: 163.6888
+Avg Loss: -96.8368
+Expectancy (avg/trade): -25.7843
+Max Drawdown (points): 2199.3770
+Max Losing Streak (trades): 10
+Sharpe (trade-level): -1.0979
+USDJPY med 0.25 slippage och 0.40 spread:
+--- STATS ---
+Market: USDJPY
+Trades: 1036
+Total PnL (points): 34.5840
+Gross Profit: 197.8810
+Gross Loss: -163.2970
+Profit Factor: 1.2118
+Winrate: 0.3272
+Avg Win: 0.5837
+Avg Loss: -0.2343
+Expectancy (avg/trade): 0.0334
+Max Drawdown (points): 8.4490
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 1.8707
+--- PER-ÅR STATS ---
+USDJPY - 2012:
+Trades: 83
+Total PnL (points): -1.0210
+Gross Profit: 8.5360
+Gross Loss: -9.5570
+Profit Factor: 0.8932
+Winrate: 0.2289
+Avg Win: 0.4493
+Avg Loss: -0.1493
+Expectancy (avg/trade): -0.0123
+Max Drawdown (points): 3.0200
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.3177
+USDJPY - 2013:
+Trades: 65
+Total PnL (points): 0.4450
+Gross Profit: 11.2620
+Gross Loss: -10.8170
+Profit Factor: 1.0411
+Winrate: 0.3385
+Avg Win: 0.5119
+Avg Loss: -0.2516
+Expectancy (avg/trade): 0.0068
+Max Drawdown (points): 3.2350
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 0.0988
+USDJPY - 2014:
+Trades: 70
+Total PnL (points): 8.1240
+Gross Profit: 13.8850
+Gross Loss: -5.7610
+Profit Factor: 2.4102
+Winrate: 0.3857
+Avg Win: 0.5143
+Avg Loss: -0.1340
+Expectancy (avg/trade): 0.1161
+Max Drawdown (points): 2.0990
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 2.0222
+USDJPY - 2015:
+Trades: 76
+Total PnL (points): -2.7080
+Gross Profit: 9.8640
+Gross Loss: -12.5720
+Profit Factor: 0.7846
+Winrate: 0.3421
+Avg Win: 0.3794
+Avg Loss: -0.2514
+Expectancy (avg/trade): -0.0356
+Max Drawdown (points): 5.4540
+Max Losing Streak (trades): 6
+Sharpe (trade-level): -0.8181
+USDJPY - 2016:
+Trades: 68
+Total PnL (points): 10.7990
+Gross Profit: 23.0100
+Gross Loss: -12.2110
+Profit Factor: 1.8844
+Winrate: 0.3971
+Avg Win: 0.8522
+Avg Loss: -0.2978
+Expectancy (avg/trade): 0.1588
+Max Drawdown (points): 3.0940
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 1.8262
+USDJPY - 2017:
+Trades: 76
+Total PnL (points): 2.0970
+Gross Profit: 13.9060
+Gross Loss: -11.8090
+Profit Factor: 1.1776
+Winrate: 0.3289
+Avg Win: 0.5562
+Avg Loss: -0.2315
+Expectancy (avg/trade): 0.0276
+Max Drawdown (points): 3.5300
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.5045
+USDJPY - 2018:
+Trades: 78
+Total PnL (points): -2.2650
+Gross Profit: 8.2460
+Gross Loss: -10.5110
+Profit Factor: 0.7845
+Winrate: 0.2692
+Avg Win: 0.3927
+Avg Loss: -0.1844
+Expectancy (avg/trade): -0.0290
+Max Drawdown (points): 3.6940
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.7409
+USDJPY - 2019:
+Trades: 83
+Total PnL (points): -0.3550
+Gross Profit: 8.3220
+Gross Loss: -8.6770
+Profit Factor: 0.9591
+Winrate: 0.3133
+Avg Win: 0.3201
+Avg Loss: -0.1522
+Expectancy (avg/trade): -0.0043
+Max Drawdown (points): 3.3030
+Max Losing Streak (trades): 10
+Sharpe (trade-level): -0.1047
+USDJPY - 2020:
+Trades: 77
+Total PnL (points): 2.9420
+Gross Profit: 11.8980
+Gross Loss: -8.9560
+Profit Factor: 1.3285
+Winrate: 0.3117
+Avg Win: 0.4958
+Avg Loss: -0.1690
+Expectancy (avg/trade): 0.0382
+Max Drawdown (points): 1.8520
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 0.6874
+USDJPY - 2021:
+Trades: 89
+Total PnL (points): 1.4890
+Gross Profit: 11.6490
+Gross Loss: -10.1600
+Profit Factor: 1.1466
+Winrate: 0.3483
+Avg Win: 0.3758
+Avg Loss: -0.1752
+Expectancy (avg/trade): 0.0167
+Max Drawdown (points): 2.8510
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.4517
+USDJPY - 2022:
+Trades: 77
+Total PnL (points): 5.5480
+Gross Profit: 20.8770
+Gross Loss: -15.3290
+Profit Factor: 1.3619
+Winrate: 0.3506
+Avg Win: 0.7732
+Avg Loss: -0.3066
+Expectancy (avg/trade): 0.0721
+Max Drawdown (points): 7.8720
+Max Losing Streak (trades): 15
+Sharpe (trade-level): 0.7994
+USDJPY - 2023:
+Trades: 72
+Total PnL (points): 6.8130
+Gross Profit: 23.8490
+Gross Loss: -17.0360
+Profit Factor: 1.3999
+Winrate: 0.3194
+Avg Win: 1.0369
+Avg Loss: -0.3477
+Expectancy (avg/trade): 0.0946
+Max Drawdown (points): 4.7450
+Max Losing Streak (trades): 11
+Sharpe (trade-level): 0.8769
+USDJPY - 2024:
+Trades: 66
+Total PnL (points): 6.2840
+Gross Profit: 22.1450
+Gross Loss: -15.8610
+Profit Factor: 1.3962
+Winrate: 0.3788
+Avg Win: 0.8858
+Avg Loss: -0.3869
+Expectancy (avg/trade): 0.0952
+Max Drawdown (points): 3.6590
+Max Losing Streak (trades): 7
+Sharpe (trade-level): 0.8566
+USDJPY - 2025:
+Trades: 56
+Total PnL (points): -3.6080
+Gross Profit: 10.4320
+Gross Loss: -14.0400
+Profit Factor: 0.7430
+Winrate: 0.2857
+Avg Win: 0.6520
+Avg Loss: -0.3510
+Expectancy (avg/trade): -0.0644
+Max Drawdown (points): 7.9770
+Max Losing Streak (trades): 15
+Sharpe (trade-level): -0.8034
+GBPJPY med 0.40 slippage och 0.65 spread:
+--- STATS ---
+Market: GBPJPY
+Trades: 1122
+Total PnL (points): 36.3970
+Gross Profit: 346.0700
+Gross Loss: -309.6730
+Profit Factor: 1.1175
+Winrate: 0.3440
+Avg Win: 0.8966
+Avg Loss: -0.4208
+Expectancy (avg/trade): 0.0324
+Max Drawdown (points): 17.9255
+Max Losing Streak (trades): 13
+Sharpe (trade-level): 1.2233
+--- PER-ÅR STATS ---
+GBPJPY - 2012:
+Trades: 65
+Total PnL (points): 9.5275
+Gross Profit: 21.0070
+Gross Loss: -11.4795
+Profit Factor: 1.8300
+Winrate: 0.4000
+Avg Win: 0.8080
+Avg Loss: -0.2943
+Expectancy (avg/trade): 0.1466
+Max Drawdown (points): 3.8345
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 1.5516
+GBPJPY - 2013:
+Trades: 66
+Total PnL (points): 4.8030
+Gross Profit: 22.8855
+Gross Loss: -18.0825
+Profit Factor: 1.2656
+Winrate: 0.3788
+Avg Win: 0.9154
+Avg Loss: -0.4410
+Expectancy (avg/trade): 0.0728
+Max Drawdown (points): 5.0525
+Max Losing Streak (trades): 4
+Sharpe (trade-level): 0.6853
+GBPJPY - 2014:
+Trades: 78
+Total PnL (points): 0.8060
+Gross Profit: 19.2575
+Gross Loss: -18.4515
+Profit Factor: 1.0437
+Winrate: 0.3462
+Avg Win: 0.7132
+Avg Loss: -0.3618
+Expectancy (avg/trade): 0.0103
+Max Drawdown (points): 5.7060
+Max Losing Streak (trades): 12
+Sharpe (trade-level): 0.1365
+GBPJPY - 2015:
+Trades: 103
+Total PnL (points): -4.4685
+Gross Profit: 27.9370
+Gross Loss: -32.4055
+Profit Factor: 0.8621
+Winrate: 0.3107
+Avg Win: 0.8730
+Avg Loss: -0.4564
+Expectancy (avg/trade): -0.0434
+Max Drawdown (points): 15.1275
+Max Losing Streak (trades): 9
+Sharpe (trade-level): -0.4500
+GBPJPY - 2016:
+Trades: 68
+Total PnL (points): 18.6330
+Gross Profit: 43.6215
+Gross Loss: -24.9885
+Profit Factor: 1.7457
+Winrate: 0.3971
+Avg Win: 1.6156
+Avg Loss: -0.6095
+Expectancy (avg/trade): 0.2740
+Max Drawdown (points): 4.3965
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 1.6170
+GBPJPY - 2017:
+Trades: 77
+Total PnL (points): -2.8355
+Gross Profit: 18.3035
+Gross Loss: -21.1390
+Profit Factor: 0.8659
+Winrate: 0.2987
+Avg Win: 0.7958
+Avg Loss: -0.3915
+Expectancy (avg/trade): -0.0368
+Max Drawdown (points): 5.3170
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -0.4540
+GBPJPY - 2018:
+Trades: 89
+Total PnL (points): 2.5985
+Gross Profit: 21.9920
+Gross Loss: -19.3935
+Profit Factor: 1.1340
+Winrate: 0.4045
+Avg Win: 0.6109
+Avg Loss: -0.3659
+Expectancy (avg/trade): 0.0292
+Max Drawdown (points): 2.8575
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 0.4432
+GBPJPY - 2019:
+Trades: 90
+Total PnL (points): -1.1340
+Gross Profit: 22.1720
+Gross Loss: -23.3060
+Profit Factor: 0.9513
+Winrate: 0.3333
+Avg Win: 0.7391
+Avg Loss: -0.3884
+Expectancy (avg/trade): -0.0126
+Max Drawdown (points): 3.2205
+Max Losing Streak (trades): 7
+Sharpe (trade-level): -0.1662
+GBPJPY - 2020:
+Trades: 82
+Total PnL (points): 0.5020
+Gross Profit: 22.0495
+Gross Loss: -21.5475
+Profit Factor: 1.0233
+Winrate: 0.3049
+Avg Win: 0.8820
+Avg Loss: -0.3780
+Expectancy (avg/trade): 0.0061
+Max Drawdown (points): 5.8880
+Max Losing Streak (trades): 10
+Sharpe (trade-level): 0.0663
+GBPJPY - 2021:
+Trades: 83
+Total PnL (points): 3.1195
+Gross Profit: 20.8505
+Gross Loss: -17.7310
+Profit Factor: 1.1759
+Winrate: 0.3253
+Avg Win: 0.7722
+Avg Loss: -0.3166
+Expectancy (avg/trade): 0.0376
+Max Drawdown (points): 4.5260
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 0.5026
+GBPJPY - 2022:
+Trades: 78
+Total PnL (points): 14.5620
+Gross Profit: 39.0715
+Gross Loss: -24.5095
+Profit Factor: 1.5941
+Winrate: 0.3974
+Avg Win: 1.2604
+Avg Loss: -0.5215
+Expectancy (avg/trade): 0.1867
+Max Drawdown (points): 4.3470
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 1.2746
+GBPJPY - 2023:
+Trades: 80
+Total PnL (points): 2.0980
+Gross Profit: 24.5950
+Gross Loss: -22.4970
+Profit Factor: 1.0933
+Winrate: 0.3500
+Avg Win: 0.8784
+Avg Loss: -0.4326
+Expectancy (avg/trade): 0.0262
+Max Drawdown (points): 6.3700
+Max Losing Streak (trades): 9
+Sharpe (trade-level): 0.2678
+GBPJPY - 2024:
+Trades: 84
+Total PnL (points): 4.9140
+Gross Profit: 31.7135
+Gross Loss: -26.7995
+Profit Factor: 1.1834
+Winrate: 0.3929
+Avg Win: 0.9610
+Avg Loss: -0.5255
+Expectancy (avg/trade): 0.0585
+Max Drawdown (points): 8.7035
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 0.5023
+GBPJPY - 2025:
+Trades: 79
+Total PnL (points): -16.7285
+Gross Profit: 10.6140
+Gross Loss: -27.3425
+Profit Factor: 0.3882
+Winrate: 0.2025
+Avg Win: 0.6634
+Avg Loss: -0.4340
+Expectancy (avg/trade): -0.2118
+Max Drawdown (points): 16.0820
+Max Losing Streak (trades): 13
+Sharpe (trade-level): -3.2538
+USDCHF med 0.35 slippage och 0.55 spread:
+--- STATS ---
+Market: USDCHF
+Trades: 1250
+Total PnL (points): 0.1018
+Gross Profit: 1.8145
+Gross Loss: -1.7127
+Profit Factor: 1.0595
+Winrate: 0.3408
+Avg Win: 0.0043
+Avg Loss: -0.0021
+Expectancy (avg/trade): 0.0001
+Max Drawdown (points): 0.1193
+Max Losing Streak (trades): 14
+Sharpe (trade-level): 0.5785
+--- PER-ÅR STATS ---
+USDCHF - 2012:
+Trades: 97
+Total PnL (points): -0.0034
+Gross Profit: 0.1383
+Gross Loss: -0.1417
+Profit Factor: 0.9760
+Winrate: 0.3299
+Avg Win: 0.0043
+Avg Loss: -0.0022
+Expectancy (avg/trade): -0.0000
+Max Drawdown (points): 0.0418
+Max Losing Streak (trades): 11
+Sharpe (trade-level): -0.0864
+USDCHF - 2013:
+Trades: 95
+Total PnL (points): 0.0168
+Gross Profit: 0.1633
+Gross Loss: -0.1465
+Profit Factor: 1.1147
+Winrate: 0.4000
+Avg Win: 0.0043
+Avg Loss: -0.0026
+Expectancy (avg/trade): 0.0002
+Max Drawdown (points): 0.0365
+Max Losing Streak (trades): 7
+Sharpe (trade-level): 0.3672
+USDCHF - 2014:
+Trades: 101
+Total PnL (points): -0.0040
+Gross Profit: 0.1099
+Gross Loss: -0.1139
+Profit Factor: 0.9651
+Winrate: 0.3366
+Avg Win: 0.0032
+Avg Loss: -0.0017
+Expectancy (avg/trade): -0.0000
+Max Drawdown (points): 0.0439
+Max Losing Streak (trades): 6
+Sharpe (trade-level): -0.1142
+USDCHF - 2015:
+Trades: 91
+Total PnL (points): 0.0085
+Gross Profit: 0.2156
+Gross Loss: -0.2071
+Profit Factor: 1.0411
+Winrate: 0.2637
+Avg Win: 0.0090
+Avg Loss: -0.0031
+Expectancy (avg/trade): 0.0001
+Max Drawdown (points): 0.0727
+Max Losing Streak (trades): 13
+Sharpe (trade-level): 0.0785
+USDCHF - 2016:
+Trades: 87
+Total PnL (points): 0.0091
+Gross Profit: 0.1476
+Gross Loss: -0.1385
+Profit Factor: 1.0660
+Winrate: 0.3103
+Avg Win: 0.0055
+Avg Loss: -0.0023
+Expectancy (avg/trade): 0.0001
+Max Drawdown (points): 0.0414
+Max Losing Streak (trades): 7
+Sharpe (trade-level): 0.1916
+USDCHF - 2017:
+Trades: 85
+Total PnL (points): -0.0276
+Gross Profit: 0.1028
+Gross Loss: -0.1304
+Profit Factor: 0.7880
+Winrate: 0.2941
+Avg Win: 0.0041
+Avg Loss: -0.0022
+Expectancy (avg/trade): -0.0003
+Max Drawdown (points): 0.0448
+Max Losing Streak (trades): 13
+Sharpe (trade-level): -0.8127
+USDCHF - 2018:
+Trades: 90
+Total PnL (points): 0.0229
+Gross Profit: 0.1130
+Gross Loss: -0.0900
+Profit Factor: 1.2546
+Winrate: 0.3778
+Avg Win: 0.0033
+Avg Loss: -0.0016
+Expectancy (avg/trade): 0.0003
+Max Drawdown (points): 0.0286
+Max Losing Streak (trades): 8
+Sharpe (trade-level): 0.8009
+USDCHF - 2019:
+Trades: 92
+Total PnL (points): -0.0076
+Gross Profit: 0.0945
+Gross Loss: -0.1021
+Profit Factor: 0.9253
+Winrate: 0.2935
+Avg Win: 0.0035
+Avg Loss: -0.0016
+Expectancy (avg/trade): -0.0001
+Max Drawdown (points): 0.0396
+Max Losing Streak (trades): 14
+Sharpe (trade-level): -0.2534
+USDCHF - 2020:
+Trades: 80
+Total PnL (points): 0.0383
+Gross Profit: 0.1223
+Gross Loss: -0.0840
+Profit Factor: 1.4563
+Winrate: 0.3625
+Avg Win: 0.0042
+Avg Loss: -0.0016
+Expectancy (avg/trade): 0.0005
+Max Drawdown (points): 0.0201
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 1.1017
+USDCHF - 2021:
+Trades: 91
+Total PnL (points): -0.0166
+Gross Profit: 0.0832
+Gross Loss: -0.0997
+Profit Factor: 0.8337
+Winrate: 0.3516
+Avg Win: 0.0026
+Avg Loss: -0.0017
+Expectancy (avg/trade): -0.0002
+Max Drawdown (points): 0.0385
+Max Losing Streak (trades): 6
+Sharpe (trade-level): -0.6779
+USDCHF - 2022:
+Trades: 93
+Total PnL (points): -0.0241
+Gross Profit: 0.1464
+Gross Loss: -0.1705
+Profit Factor: 0.8586
+Winrate: 0.3118
+Avg Win: 0.0050
+Avg Loss: -0.0027
+Expectancy (avg/trade): -0.0003
+Max Drawdown (points): 0.0539
+Max Losing Streak (trades): 7
+Sharpe (trade-level): -0.5385
+USDCHF - 2023:
+Trades: 97
+Total PnL (points): -0.0281
+Gross Profit: 0.1054
+Gross Loss: -0.1335
+Profit Factor: 0.7897
+Winrate: 0.3299
+Avg Win: 0.0033
+Avg Loss: -0.0021
+Expectancy (avg/trade): -0.0003
+Max Drawdown (points): 0.0377
+Max Losing Streak (trades): 5
+Sharpe (trade-level): -0.7145
+USDCHF - 2024:
+Trades: 79
+Total PnL (points): 0.0530
+Gross Profit: 0.1322
+Gross Loss: -0.0791
+Profit Factor: 1.6703
+Winrate: 0.4430
+Avg Win: 0.0038
+Avg Loss: -0.0018
+Expectancy (avg/trade): 0.0007
+Max Drawdown (points): 0.0249
+Max Losing Streak (trades): 6
+Sharpe (trade-level): 1.1975
+USDCHF - 2025:
+Trades: 72
+Total PnL (points): 0.0645
+Gross Profit: 0.1401
+Gross Loss: -0.0756
+Profit Factor: 1.8540
+Winrate: 0.3889
+Avg Win: 0.0050
+Avg Loss: -0.0017
+Expectancy (avg/trade): 0.0009
+Max Drawdown (points): 0.0100
+Max Losing Streak (trades): 5
+Sharpe (trade-level): 1.4172
+Nasdaq får PF 1.0878, Exp +3.37, Sharpe 0.78 så den överlever stressen. Men årsvis är det väldigt regimkänsligt med många negativa år tidigt och sedan några monsterår som bär upp hela perioden, framförallt 2022. Det behöver inte vara  dåligt, men det betyder att vi 
+har en edge som är koncentrerad till vissa miljöer. Dax får PF 0.984, Exp -0.66, den dör vid stress. Strategin är antingen för tunn på DAX eller för känslig för friktion, vilket DAX ofta är, särskilt om man modellerar tuffa fills. Med denna cost-nivån är dax inte en
+kandidat, däremot är de viktigt att försåt att såhär tuffa kostnader är sällsyna och representerar inte normalt beteende. Vi väljer därför att ha kvar dax, men det är mycket troligt att den blir en diversifierings komponent i portföljen, alltså att den får ganska lite 
+vikt då den inte presterar lika bra ensamt som de andra marknaderna. USDJPY får PF 1.2118, Exp +0.0334, Sharpe 1.87 vilket är väldigt bra. Det är väldigt starkt eftersom det är ganska hög spread och slippage jämfört vad det brukar vara live samtidgigt som prestationen
+håller. GBPJPY får PF 1.1175, Exp +0.0324, Sharpe 1.22, så den överlever. Däremot är den också regimkänslig men mindre “katastrof-år” än man ofta ser på GBPJPY. 2025 är riktigt dåligt, men helheten står kvar. USDCHF får PF 1.0595, Exp ~0.0001, den överlever, men det 
+är en tunn edge. USDCHF kan fungera som diversifiering precis som DAX, de ingår i portföljen men är inte motorerna så att säga. Nu har vi kört alla nödvändiga tester för att kunna gå vidare till en riktig portfölj simulation. I portfölj simulationen kommer vi räkna 
+resultat i pengar baserat på ett startkapital. Vi kommer kolla diversifiering mellan marknadenrna. ta fram ERC-vikter, bootstrappa de vikterna och jämföra boostrapp med equal weights. Vi hypotiserar att USDJPY, NASDAQ och GBPJPY får högst viktning, även om de inte får 
+det av ERC beräkningarna kommer vi med störst sannolikhet bestämma vikter som lutar mer åt det hållet. När vi bestämt vikter kommer vi sedan vol-targeta där vi gradvis ökar total exposure tills vi når våran CAGR (Compound annualgrowth rate) mål, samtidigt som drawdown 
+och risk hålls på en hanterbar nivå. Efter det är trendföljande portföljen klar. Vi kommer sedan kombinera denna trend portfölj med mean reversion portföljen till en portfölj och sedan göra exakt samma process på dessa portföljer som om de vore två enskilda marknader. 
+Vi kommer alltså bestämma vikt och exposure mellan portföljern och även total exposure. När hela portfölj strukturen är klar ska vi köra monte carlo simulationer och ta fram sannolikhet att passa första och andra steget på ett funded konto och att faktiskt nå en
+payout.
